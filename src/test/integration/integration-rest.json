@@ -1,0 +1,118 @@
+{
+  "front-version": "2.9.0",
+  "version": 3,
+  "nodes": [
+    {
+      "type": "Project",
+      "id": "6e527926-730a-4e67-b571-d38d49977fdd",
+      "lastModified": "2017-09-14T00:31:26.084-03:00",
+      "name": "rhforum"
+    },
+    {
+      "type": "Scenario",
+      "id": "97749611-07a7-4496-8da9-5a85709031e6",
+      "lastModified": "2017-09-14T00:28:44.901-03:00",
+      "name": "Scenario 1",
+      "requestOrder": [
+        "Get all customer",
+        "Create customer",
+        "Get a customer",
+        "Update a customer",
+        "Delete a customer"
+      ],
+      "parentId": "6e527926-730a-4e67-b571-d38d49977fdd"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded"
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "rhforum-rhforum-app-dev.apps.ocp.rhbrlab.com",
+        "path": "/rhforum/rest/clientes"
+      },
+      "id": "8c0caed4-9667-4df5-9186-c0361ed5eb00",
+      "lastModified": "2017-09-14T00:23:34.731-03:00",
+      "name": "Get all customer",
+      "headers": [],
+      "assertions": [
+        {
+          "comparison": "Equals",
+          "subject": "ResponseStatus",
+          "path": "code",
+          "value": "200"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "97749611-07a7-4496-8da9-5a85709031e6"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded"
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\n  \"nome\": \"Gustavo\",\n  \"sobrenome\": \"Luszczynski\"\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "rhforum-rhforum-app-dev.apps.ocp.rhbrlab.com",
+        "path": "/rhforum/rest/clientes"
+      },
+      "id": "8e3da52f-1514-489f-9a88-90b6463da6ce",
+      "lastModified": "2017-09-14T00:24:25.094-03:00",
+      "name": "Create customer",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "assertions": [
+        {
+          "comparison": "Equals",
+          "subject": "ResponseStatus",
+          "path": "code",
+          "value": "201"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "97749611-07a7-4496-8da9-5a85709031e6"
+  }
+  ]
+}
